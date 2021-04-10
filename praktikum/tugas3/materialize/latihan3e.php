@@ -63,7 +63,7 @@ $kendaraan = [
    [
 
         "gambar" => "cbr25.jpg",
-        "nama" => "Honda CBR250R",
+        "nama" => "Honda CBR250RR",
         "tahun" => "2021",
         "harga" => "USD 4.657,5 (OTR Jakarta)",
 
