@@ -35,7 +35,48 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Halaman Admin</title>
+    <style>
+    div, p {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+button:hover {
+  background-color: #45a049;
+}
+button[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+    </style>
 </head>
 <body>
 
@@ -43,6 +84,7 @@ if(isset($_POST['submit'])){
     <?php if(isset($error)) : ?>
         <p style="color: red; font-style: italic;">Username atau password salah</p>
     <?php endif; ?>
+    <div>
         <table>
             <tr>
                 <td><label for="username">Username</label></td>
@@ -63,6 +105,7 @@ if(isset($_POST['submit'])){
             <p>Belum punya akun ? Registrasi <a href="registrasi.php">Disini</a></p>
         </div>
         <button type="submit" name="submit">Login</button>
+    </div>
     </form>
     
 </body>
