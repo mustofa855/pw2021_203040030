@@ -1,4 +1,5 @@
 <?php 
+
 require 'functions.php';
 
 //ambil dari url
