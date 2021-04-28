@@ -3,7 +3,7 @@
 Mustofa Firdaus
 203040030
 https://github.com/mustofa855/pw2021_203040030
-Pertemuan 11 - 25 April 2021
+Pertemuan 12 - 28 April 2021
 Mempelajari mengenai sintaks PHP
 */
 ?>
