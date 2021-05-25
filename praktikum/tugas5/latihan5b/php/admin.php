@@ -40,7 +40,7 @@ $kendaraan = query("SELECT * FROM kendaraan");
                         <tr>
                     
                             <td><?php echo $i ?></td>
-                            <td><?php echo "<img src='assets/img/$motor[img]' width='110' height='100' />";?></td>
+                            <td><?php echo "<img src='../assets/img/$motor[img]' width='110' height='100' />";?></td>
                             <td><?php echo $motor["nama"]; ?></td>
                             <td><?php echo $motor["tahun_dibuat"]; ?></td>
                             <td><?php echo $motor["harga"]; ?></td>

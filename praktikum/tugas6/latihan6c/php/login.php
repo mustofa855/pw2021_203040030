@@ -1,23 +1,6 @@
 <?php
 session_start();
 require 'function.php';
-
-// Cek Cookie
-if(isset($_COOKIE['username']) && isset($_COOKIE['hash'])) {
-    $username = $_COOKIE['username'];
-    $hash = $_COOKIE['hash'];
-
-    // ambil username berdasarkan id
-    $result= mysqli_query(koneksi(),"SELECT * FROM user WHERE username = '$username'");
-    $row = mysqli_fetch_assoc($result);
-
-    // Cek Cookie dan username
-    if($hash === hash('sha256', $row['id'], false)) {
-        $_SESSION['username'] = $row['username'];
-        header("Location: admin.php");
-        exit;
-    }
-}
 // Melakukan pengecekan apakah user sudah melakukan login jika sudah redirect ke halaman admin
 if(isset($_SESSION['username'])) {
     header("Location: admin.php");
@@ -26,40 +9,32 @@ if(isset($_SESSION['username'])) {
 //login
 if(isset($_POST['submit'])){
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $passsword = $_POST['password'];
     $cek_user = mysqli_query(koneksi(), "SELECT * FROM user WHERE username = '$username'");
     //mencocokan username dan password
     if(mysqli_num_rows($cek_user) > 0) {
         $row = mysqli_fetch_assoc($cek_user);
-        if(password_verify($password, $row['password'])) {
+        if($passsword == $row['password']) {
             $_SESSION['username'] = $_POST['username'];
-            $_SESSION['hash'] = hash('sha256', $row['id'], false);
-            // Jika Remember me dicentang
-            if(isset($_POST['remember'])) {
-                setcookie('username', $row['username'], time() + 60 * 60 * 24);
-                $hash = hash('sha256', $row['id']);
-                setcookie('hash', $hash, time() + 60 * 60 * 24);
-            }
-
-            if(hash('sha256', $row['id']) == $_SESSION['hash']) {
-                header("Location: admin.php");
-                die;
-            }
-            header("Location: ../index.php");
+            $_SESSION['hash'] = $row['id'];
+        }
+        if($row['id'] == $_SESSION['hash']) {
+            header("Location: admin.php");
             die;
         }
+        header("Location: ../index.php");
+        die;
     }
     $error = true;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Admin</title>
+    <title>Document</title>
     <style>
     div, p {
   border-radius: 5px;
@@ -113,24 +88,21 @@ button[type=submit]:hover {
             <tr>
                 <td><label for="username">Username</label></td>
                 <td>:</td>
-                <td><input type="text" name="username"></td>
+                <td><input type="text" name="username" placeholder="Masukan Username..."></td>
             </tr>
             <tr>
                 <td><label for="password">Password</label></td>
                 <td>:</td>
-                <td><input type="password" name="password"></td>
+                <td><input type="password" name="password" placeholder="Masukan Password Anda..."></td>
             </tr>
         </table>
         <div class="remember">
             <input type="checkbox" name="remember">
             <label for="remember">Remember Me</label>
         </div>
-        <div class="registrasi">
-            <p>Belum punya akun ? Registrasi <a href="registrasi.php">Disini</a></p>
-        </div>
         <button type="submit" name="submit">Login</button>
-    </div>
     </form>
+    </div>
     
 </body>
 </html>

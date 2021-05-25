@@ -3,7 +3,7 @@
 Nama : MUSTOFA FIRDAUS
 NRP : 203040029
 Shift Praktikum : Rabu pukul 09:00
-Tugas : Tugas 4 Praktikum Pemrograman Web
+Tugas : Tugas 5 Praktikum Pemrograman Web
 */
 ?>
 <?php 
@@ -22,14 +22,14 @@ $kendaraan = query("SELECT * FROM kendaraan")
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Latihan4c</title>
+  <title>latihan5b</title>
 </head>
 <body>
   <div class="container">
       <?php foreach ($kendaraan as $motor) : ?>
         <p class="nama">
-          <a href="../detail.php?id=<?= $motor['id'] ?>">
-              <?= $motor["nama"] ?>
+          <a href="php/detail.php?id=<?= $motor['id'] ?>">
+              <?= $motor['nama'] ?>
 
           </a>
         </p>

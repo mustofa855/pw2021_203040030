@@ -17,7 +17,7 @@ $kendaraan = query("SELECT * FROM kendaraan");
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
       
-      <title>Latihan4b</title>
+      <title>Latihan5d</title>
 
     </head>
 
@@ -27,6 +27,7 @@ $kendaraan = query("SELECT * FROM kendaraan");
                 <thead>
                   <tr>
                   <th>No</th>
+                  <th>OPSI</th>
                   <th>PICTURE</th>
                   <th>NAMA PRODUK</th>
                   <th>TAHUN DIBUAT</th>
@@ -41,10 +42,10 @@ $kendaraan = query("SELECT * FROM kendaraan");
                     
                             <td><?php echo $i ?></td>
                             <td>
-                            <a href="hapus.php?id=<? $motor['id']?>" onclick="return confirm('Hapus Data??')">Hapus</a>
-                            <a href="ubah.php?id=<? $motor['id']?>" onclick="return confirm('Ubah Data??')">UBAH</a>
+                              <a href="ubah.php?id=<?= $motor["id"];?>"><button>UBAH DATA</button></a>
+                              <a href="hapus.php?id=<?= $motor["id"];?>" onclick="return confirm('Hapus Data?')"><button>HAPUS DATA</button></a>
                             </td>
-                            <td><?php echo "<img src='assets/img/$motor[img]' width='110' height='100' />";?></td>
+                            <td><?php echo "<img src='../assets/img/$motor[img]' width='110' height='100' />";?></td>
                             <td><?php echo $motor["nama"]; ?></td>
                             <td><?php echo $motor["tahun_dibuat"]; ?></td>
                             <td><?php echo $motor["harga"]; ?></td>
@@ -57,7 +58,6 @@ $kendaraan = query("SELECT * FROM kendaraan");
 
             </table>
       </div>
-      
 
 
       <!--JavaScript at end of body for optimized loading-->

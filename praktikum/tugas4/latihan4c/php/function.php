@@ -3,7 +3,7 @@
 
 function koneksi() 
 {
-    $conn = mysqli_connect("localhost", "root", "" , "pw_tubes_203040030");
+    $conn = mysqli_connect("localhost", "root", "" , "pw2021_tubes_203040030");
     
 
     return $conn;

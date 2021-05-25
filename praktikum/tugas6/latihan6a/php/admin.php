@@ -25,7 +25,7 @@ if(isset($_GET['cari'])) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
       
-      <title>Latihan4b</title>
+      <title>Latihan6a</title>
 
     </head>
 
@@ -60,7 +60,7 @@ if(isset($_GET['cari'])) {
                             <a href="hapus.php?id=<? $motor['id']?>" onclick="return confirm('Hapus Data??')">Hapus</a>
                             <a href="ubah.php?id=<? $motor['id']?>" onclick="return confirm('Ubah Data??')">UBAH</a>
                             </td>
-                            <td><?php echo "<img src='assets/img/$motor[img]' width='110' height='100' />";?></td>
+                            <td><?php echo "<img src='../assets/img/$motor[img]' width='110' height='100' />";?></td>
                             <td><?php echo $motor["nama"]; ?></td>
                             <td><?php echo $motor["tahun_dibuat"]; ?></td>
                             <td><?php echo $motor["harga"]; ?></td>

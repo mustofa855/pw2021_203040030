@@ -3,14 +3,14 @@
 // jika tidak maka akan dikembalikan ke halaman index.php
 
 if (!isset($_GET['id'])) {
-    header("location: ../index.php");
+    header("Location: ../index.php");
     exit;
 }
 
-require 'php/function.php';
+require 'function.php';
 
 // mengambil id dari url 
-$id = $_GET['id']
+$id = $_GET['id'];
 
 // melakukan query dengan parameter id yang diambil dari url
 $kendaraan = query("SELECT * FROM kendaraan WHERE id = $id ")[0]
@@ -29,7 +29,7 @@ $kendaraan = query("SELECT * FROM kendaraan WHERE id = $id ")[0]
 <body>
     <div class="container">
         <div class="gambar">
-            <img src="assets/img/<?= $motor["img"] ?>"alt="" width="100">
+            <img src="../assets/img/<?= $motor["img"] ?>"alt="" width="100">
         </div>
         <div class="keterangan">
             <p><?= $motor[nama]; ?></p>

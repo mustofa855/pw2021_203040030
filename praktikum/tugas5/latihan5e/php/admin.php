@@ -1,16 +1,8 @@
 <?php 
 require 'function.php';
 
-if(isset($_GET['cari'])) {
-  $keyword = $_GET['keyword'];
-  $kendaraan = query("SELECT * FROM kendaraan WHERE
-                      nama LIKE '%$keyword%' OR
-                      tahun_dibuat LIKE '%$keyword%' OR
-                      harga LIKE '%$keyword%' ");
-}else {
-  $kendaraan = query("SELECT * FROM kendaraan");
-}
-
+//melakukan query
+$kendaraan = query("SELECT * FROM kendaraan");
 ?>
 
 <!DOCTYPE html>
@@ -25,24 +17,21 @@ if(isset($_GET['cari'])) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
       
-      <title>Latihan4b</title>
+      <title>Latihan5e</title>
 
     </head>
 
     <body>
-
-    <form action="" method="get">
-      <input type="text" name = "keyword" autofocus>
-      <button type="submit" name="cari">Cari!</button>
-    </form>
-    
-    <button type="submit" name="tambah">Tambah Data !</button>
-
+    <form action="" method="GET">
+            <input type="text" name="keyword" autofocus>
+            <button type="submit" name="cari">Cari!</button>
+        </form>
     <div class="highlight" >
             <table class="highlight">
                 <thead>
                   <tr>
                   <th>No</th>
+                  <th>OPSI</th>
                   <th>PICTURE</th>
                   <th>NAMA PRODUK</th>
                   <th>TAHUN DIBUAT</th>
@@ -57,10 +46,10 @@ if(isset($_GET['cari'])) {
                     
                             <td><?php echo $i ?></td>
                             <td>
-                            <a href="hapus.php?id=<? $motor['id']?>" onclick="return confirm('Hapus Data??')">Hapus</a>
-                            <a href="ubah.php?id=<? $motor['id']?>" onclick="return confirm('Ubah Data??')">UBAH</a>
+                              <a href="ubah.php?id=<?= $motor["id"];?>"><button>UBAH DATA</button></a>
+                              <a href="hapus.php?id=<?= $motor["id"];?>" onclick="return confirm('Hapus Data?')"><button>HAPUS DATA</button></a>
                             </td>
-                            <td><?php echo "<img src='assets/img/$motor[img]' width='110' height='100' />";?></td>
+                            <td><?php echo "<img src='../assets/img/$motor[img]' width='110' height='100' />";?></td>
                             <td><?php echo $motor["nama"]; ?></td>
                             <td><?php echo $motor["tahun_dibuat"]; ?></td>
                             <td><?php echo $motor["harga"]; ?></td>
@@ -72,9 +61,6 @@ if(isset($_GET['cari'])) {
 
 
             </table>
-      </div>
-      <div class="hapus">
-                  <a href="ubah.php?id=<? $motor['id']?>" onclick="return confirm('Ubah Data??')">UBAH</a>      
       </div>
 
 

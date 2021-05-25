@@ -3,17 +3,17 @@
 // jika tidak maka akan dikembalikan ke halaman index.php
 
 if (!isset($_GET['id'])) {
-    header("location: ../index.php");
+    header("Location: ../index.php");
     exit;
 }
 
-require 'php/function.php';
+require 'function.php';
 
 // mengambil id dari url 
-$id = $_GET['id']
+$id = $_GET['id'];
 
 // melakukan query dengan parameter id yang diambil dari url
-$kendaraan = query("SELECT * FROM kendaraan WHERE id = $id ")[0]
+$motor = query("SELECT * FROM kendaraan WHERE id = $id ")[0];
 ?>
 
 
@@ -23,20 +23,22 @@ $kendaraan = query("SELECT * FROM kendaraan WHERE id = $id ")[0]
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latihan4c</title>
+    <title>latihan5b</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <div class="gambar">
-            <img src="assets/img/<?= $motor["img"] ?>"alt="" width="100">
+        <div class="foto">
+           <td><img src="../assets/img/<?= $motor["img"]; ?>" width="110" height="100"></td>
         </div>
         <div class="keterangan">
-            <p><?= $motor['nama']; ?></p>
-            <p><?= $motor['tahun_dibuat']; ?></p>
-            <p><?= $motor['harga']; ?></p>
+            <li><?= $motor["nama"];  ?></li>
+            <li><?= $motor["tahun_dibuat"];   ?></li>
+            <li><?= $motor["harga"]; ?></li>
+            
         </div>
-        <button class="tombol-kembali"><a href="index.php">Kembali</a></button>
+        <button class="tombol-kembali"><a href="../index.php">Kembali</a></button>
+        <button class="tambah"><a href="tambah.php">Tambah Data</a></button>
     </div>
 </body>
 </html>

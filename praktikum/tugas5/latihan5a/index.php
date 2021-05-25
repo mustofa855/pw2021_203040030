@@ -28,8 +28,8 @@ $kendaraan = query("SELECT * FROM kendaraan")
   <div class="container">
       <?php foreach ($kendaraan as $motor) : ?>
         <p class="nama">
-          <a href="../detail.php?id=<?= $motor['id'] ?>">
-              <?= $motor["nama"] ?>
+          <a href="php/detail.php?id=<?= $motor['id'] ?>">
+              <?= $motor['nama'] ?>
 
           </a>
         </p>

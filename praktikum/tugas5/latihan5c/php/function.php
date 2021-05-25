@@ -3,7 +3,7 @@
 
 function koneksi() 
 {
-    $conn = mysqli_connect("localhost", "root", "" , "pw_tubes_203040030");
+    $conn = mysqli_connect("localhost", "root", "" , "pw2021_tubes_203040030");
     
 
     return $conn;
@@ -43,13 +43,5 @@ function tambah($data)
     return mysqli_affected_rows($conn);
 }
 
-// fungsi untuk menghapus data
-function hapus($id)
-{
-    $conn = koneksi();
-    mysqli_query($conn, "DELETE FROM kendaraan WHERE id = $id");
-
-    return mysqli_affected_rows($conn);
-}
 
 ?>

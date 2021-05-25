@@ -9,7 +9,7 @@ Mempelajari mengenai sintaks PHP
 ?>
 <?php 
 // koneksi ke DB dan pilih DB
-$conn = mysqli_connect('localhost', 'root','', 'pw_tubes_203040030');
+$conn = mysqli_connect('localhost', 'root','', 'pw2021_tubes_203040030');
 
 //query isi tabel mahasiswa 
 $result = mysqli_query($conn, "SELECT * FROM mahasiswa");

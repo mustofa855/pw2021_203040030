@@ -2,7 +2,7 @@
 
 function koneksi()
 {
-    return mysqli_connect('localhost', 'root','', 'pw_tubes_203040030');
+    return mysqli_connect('localhost', 'root','', 'pw2021_tubes_203040030');
 }
 
 function query($query)
